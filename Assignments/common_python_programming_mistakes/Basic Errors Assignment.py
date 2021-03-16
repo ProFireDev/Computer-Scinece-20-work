@@ -6,10 +6,6 @@ print x #Fix this line so it prints 1
 
 #Error 2
 y = "1"
-
-
-
-
 z = 2
 print(z+y)#Fix this line so it prints 3
 
