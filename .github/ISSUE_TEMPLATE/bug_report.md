@@ -25,7 +25,7 @@ If applicable, add screenshots to help explain your problem.
 
 **Desktop (please complete the following information):**
  - OS: [e.g. Windows 10]
- - Version [e.g. 22]
+ - Version [e.g. python 3.9.1]
  -Python verson 
  - any other information you can provide about your enviornment 
 
