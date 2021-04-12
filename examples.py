@@ -9,9 +9,9 @@
 #excuse the spelling too, because i am super bad at it, and they
 #do not have a spell checker in IDE's for some reason
 
-# python verson 3.9.1, remember to click install to path in the installer
+# python verson 3.9.2, remember to click install to path in the installer
 
-# if looking for a spacificc thing, they are labled by topic, so you
+# if looking for a spacific thing, they are labled by topic, so you
 # can Ctrl + f to find it
 
 # Print statements //how to print stuff to the console
