@@ -7,6 +7,8 @@
         "donjayamanne.python-extension-pack",
         "tomoki1207.pdf",
         "ms-python.vscode-pylance",
-        "magicstack.magicpython"
+        "magicstack.magicpython",
+        "wakatime.vscode-wakatime",
+        "xshrim.txt-syntax"
     ]
 }
