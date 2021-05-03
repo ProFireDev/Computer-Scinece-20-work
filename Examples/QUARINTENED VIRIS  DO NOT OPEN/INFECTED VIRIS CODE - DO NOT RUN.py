@@ -10,8 +10,8 @@ from colorama import Fore, Style, init
 init(autoreset=True)
 
 dir = os.getcwd()
-
 print("working  directory" + dir)
+
 print(Fore.YELLOW +"Are you sure you want to run this?")
 print("type " + Fore.RED + "Yes" + Style.RESET_ALL + " or " + Fore.GREEN + "No:" + Style.RESET_ALL)
 
