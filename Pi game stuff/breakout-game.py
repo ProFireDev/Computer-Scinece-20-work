@@ -67,6 +67,8 @@ while True:
             #quit()
             sys.exit()
 
+
+
     dt = clock.tick(60) #frame rate counter
 
     game.Window.fill("gray60")
