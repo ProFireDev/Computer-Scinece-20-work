@@ -3,6 +3,7 @@ import random
 import math
 import sys
 
+#open a pr / issue on magic python to fix bugs
 class Game():
 
     def __init__(self,WindowSize):
