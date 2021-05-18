@@ -1,10 +1,4 @@
-from pygame import Rect, display, draw, event, init, key, rect, time
-from pygame.constants import K_LEFT, K_RIGHT, QUIT
-#^ it should just be covered by *
-#ignore warnings in editor, they are wrong, just added thease in to get rid of them, cuz they are annoying -
-# make an issue on the github for the error lesnse about it 
-
-#from pygame import *
+from pygame import *
 import random
 import math
 import sys
@@ -34,6 +28,8 @@ class Game():
             self.Ball.velX = vx
             self.Ball.velY = vy
 
+        
+
     def draw(self):
         self.Ball.draw()
         self.Paddle.draw()
@@ -52,6 +48,9 @@ class Game():
                 self.bounce(brick)
                 self.Bricks.remove(brick)
                 break
+
+
+        
 
 class Ball():
 
@@ -94,6 +93,7 @@ class Ball():
 
         self.rect.update(self.x - self.radius,self.y-self.radius,self.radius*2,self.radius*2)
 
+
     def resetBall(self):
         self.x = 600
         self.y = 600
@@ -103,7 +103,10 @@ class Ball():
         self.velX = self.targetVelocity * math.cos(angle)
         self.velY = -self.targetVelocity * math.sin(angle)
 
-        self.rect = rect(self.x - self.radius,self.y-self.radius,self.radius*2,self.radius*2)
+        self.rect = Rect(self.x - self.radius,self.y-self.radius,self.radius*2,self.radius*2)
+
+        
+        
 
 class Paddle():
 
@@ -123,6 +126,7 @@ class Paddle():
         
         self.rect = Rect(self.x,self.y,self.length,self.width)
         
+
     def draw(self):
         draw.rect(self.Window, self.colour, self.rect)
 
@@ -142,6 +146,7 @@ class Paddle():
         elif self.x > self.maxRight:
             self.x = self.maxRight
         
+        
         self.rect.update(self.x,self.y,self.length,self.width)
 
 class Brick():
@@ -158,9 +163,11 @@ class Brick():
         self.colour = random.choice(colours)
         self.rect = Rect(x,y,self.length,self.width)
         
+
     def draw(self):
         draw.rect(self.Window, self.colour, self.rect)
         
+
 if init()[1] != 0:
     print("Error initializing PyGame")
 
@@ -168,16 +175,12 @@ boardSize = (1200,800)
 game = Game(boardSize)
 clock = time.Clock()
 
-#start of the game components being called
-
 while True:
     for evnt in event.get():
 
         if evnt.type == QUIT:
             quit()
-        sys.exit() # moved back a tab and error warning went away -- check in on this
-        #code is unreachable, is also incorrect (for now), ignore it
-            # i dont belive that this has properly been implamented yet
+            sys.exit()
 
     dt = clock.tick(60)
     
@@ -187,4 +190,4 @@ while True:
 
     game.update(dt,keys)
     game.draw()
-    display.update()   
+    display.update()
