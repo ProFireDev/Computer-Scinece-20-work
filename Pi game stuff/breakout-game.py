@@ -28,8 +28,6 @@ class Game():
             self.Ball.velX = vx
             self.Ball.velY = vy
 
-        
-
     def draw(self):
         self.Ball.draw()
         self.Paddle.draw()
@@ -48,9 +46,6 @@ class Game():
                 self.bounce(brick)
                 self.Bricks.remove(brick)
                 break
-
-
-        
 
 class Ball():
 
@@ -93,7 +88,6 @@ class Ball():
 
         self.rect.update(self.x - self.radius,self.y-self.radius,self.radius*2,self.radius*2)
 
-
     def resetBall(self):
         self.x = 600
         self.y = 600
@@ -104,9 +98,6 @@ class Ball():
         self.velY = -self.targetVelocity * math.sin(angle)
 
         self.rect = Rect(self.x - self.radius,self.y-self.radius,self.radius*2,self.radius*2)
-
-        
-        
 
 class Paddle():
 
@@ -126,7 +117,6 @@ class Paddle():
         
         self.rect = Rect(self.x,self.y,self.length,self.width)
         
-
     def draw(self):
         draw.rect(self.Window, self.colour, self.rect)
 
@@ -163,11 +153,9 @@ class Brick():
         self.colour = random.choice(colours)
         self.rect = Rect(x,y,self.length,self.width)
         
-
     def draw(self):
         draw.rect(self.Window, self.colour, self.rect)
         
-
 if init()[1] != 0:
     print("Error initializing PyGame")
 
