@@ -95,4 +95,4 @@ with open('Knock Off Script.txt', 'w') as script_file:
 # this should be the most efficent way to do it? at the same time, it was also probbly the hardest, I dont
 # recommend using regex. I dont think I will again if i can avoid it lol. do keep in mind that its about 98.7%
 # functional but there is some weird edge cases that im not 100% sure how do fix. im sure its something really basic
-# that im missing, but ill take the doc just to get it in, please do let me know whats up though.
+# that im missing, but ill take the doc just to get it in, please do let me know whats up though. 
