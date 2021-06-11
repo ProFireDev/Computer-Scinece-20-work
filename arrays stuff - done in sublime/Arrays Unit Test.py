@@ -1,5 +1,4 @@
-
-#This function tests the inputted function to see if it returns the correct answer
+# This function tests the inputted function to see if it returns the correct answer
 def unitTest(function, args, answer, testMsg):
     def passed(testMsg):
         print(f"Passed {testMsg}")
