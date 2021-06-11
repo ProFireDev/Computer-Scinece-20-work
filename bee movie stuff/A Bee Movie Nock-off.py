@@ -31,7 +31,7 @@ with open('Bee movie Script.txt', 'r') as script_file:
         if word not in unique_words: # if not unique then it dosent count it!
             unique_words.append(word)
 
-    print(f'\n[+] Number of Unique Words: {len(unique_words)}') #not sure what else to comment here, len retuns the num of items 
+    print(f'\n[+] Number of Unique Words: {len(unique_words)}') #not sure what else to comment here, len retuns the num of items
     #in the unique_words object
 
     # dictionary for how many times each unique word appears
@@ -47,7 +47,7 @@ with open('Knock Off Script.txt', 'w') as script_file:
     with open('Bee movie Script.txt', 'r') as original_script:
         knock_off_script = original_script.read()
 
-        # Dictionary of words to replace and their replacements (can be made to accept in form of input) 
+        # Dictionary of words to replace and their replacements (can be made to accept in form of input)
         # || with modifaction, i didnt want to leave it in
         replace_dictionary = {
             'Bee': 'Flea', # haha it rymes so thats what im doing

@@ -163,3 +163,10 @@ class Fraction:
         self.numerator = int(self.numerator/compute_gcd)
         self.denominator = int(self.denominator/compute_gcd)
         return self
+
+
+
+
+
+
+
