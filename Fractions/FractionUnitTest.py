@@ -12,7 +12,7 @@ def equalityCheck(first, second, testMsg, neg=False):
         return 0
 
 try:
-    from fractions import *
+    from fraction import *
 except:
     print("Error trying to load Fraction class from file, check file name and location")
     endTest()
