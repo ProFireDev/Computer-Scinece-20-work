@@ -61,7 +61,7 @@ try:
     mark += equalityCheck(half/third,threeHalf,"Division test: 1/2 / 1/3 = 3/2")
 except:
     print("Error occured testing operators (+,-,*,//)")
-    
+
 print("\nTesting simplification function\n")
 
 try:
@@ -93,11 +93,7 @@ try:
     mark += equalityCheck(half*3,threeHalf,"Multiplication test: 1/2 * 3 = 3/2")
     mark += equalityCheck(half/3,oneSixth,"Division test: 1/2 / 3 = 1/6")
 except:
-    print("Error testing math operations with integers")    
+    print("Error testing math operations with integers")
 
 print(f"\nUnit Test Results: {mark}/20")
 endTest()
-
-
-
-            
