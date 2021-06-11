@@ -1,6 +1,6 @@
-#imports the needed modules
+# imports the needed modules
 import string
-import re #Regular expressions, woo! (also known as dark magic)
+import re # Regular expressions, woo! (also known as dark magic)
 
 with open('Bee movie Script.txt', 'r') as script_file:
     script = script_file.read()
@@ -31,11 +31,12 @@ with open('Bee movie Script.txt', 'r') as script_file:
         if word not in unique_words: # if not unique then it dosent count it!
             unique_words.append(word)
 
-    print(f'\n[+] Number of Unique Words: {len(unique_words)}') #not sure what else to comment here, len retuns the num of items in the unique_words object
+    print(f'\n[+] Number of Unique Words: {len(unique_words)}') #not sure what else to comment here, len retuns the num of items 
+    #in the unique_words object
 
     # dictionary for how many times each unique word appears
 
-    ##for word in unique_words:
+    #for word in unique_words:
         #words_and_their_counts[word] = script_words.count(word)
     #print(words_and_their_counts)
 
@@ -46,7 +47,8 @@ with open('Knock Off Script.txt', 'w') as script_file:
     with open('Bee movie Script.txt', 'r') as original_script:
         knock_off_script = original_script.read()
 
-        # Dictionary of words to replace and their replacements (can be made to accept in form of input) || with modifaction, i didnt want to leave it in
+        # Dictionary of words to replace and their replacements (can be made to accept in form of input) 
+        # || with modifaction, i didnt want to leave it in
         replace_dictionary = {
             'Bee': 'Flea', # haha it rymes so thats what im doing
             'Bees': 'Fleas',
@@ -72,7 +74,7 @@ with open('Knock Off Script.txt', 'w') as script_file:
 # they should add text / comment spell checkers to IDE's, im really bad at this.
 # swiched over to using atom, it works way better, gonna stick with it until i can reinstall vs code
 
-############################################################################################################
+#####################################################################################################################
 #                                              KNOWN ISSUES:
 #
 # some c's replaced  with O:
@@ -86,8 +88,8 @@ with open('Knock Off Script.txt', 'w') as script_file:
 # word count: the real script is is 13,767 words the count i get is 9207 so there was some lost, maybe in
 #             titles or something? I think maybe i forgot to add unique_words and script_words together
 #              because that comes out to 11,676, but that still seems too low for a good margin or error.
-
-###########################################################################################################
+#
+#####################################################################################################################
 #                                            Final Remarks:
 #
 # this should be the most efficent way to do it? at the same time, it was also probbly the hardest, I dont
