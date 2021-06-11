@@ -69,13 +69,13 @@ class Fraction:
                 return str(new_frac)
 
             else:
-                new_nume = (self.numerator * deno) + (nume * self.denominator)
-                new_frac = Fraction(self.numerator,self.denominator)
+                new_nume = (self.numerator * deno) + (nume * self.denominator) #notice how they repeat eachother, once you explain one
+                new_frac = Fraction(self.numerator,self.denominator) # theres not much else to explain after 
                 new_frac.numerator = new_nume
                 new_frac.denominator = self.denominator * deno
                 new_frac.simplify()
                 return str(new_frac)
-    def __sub__(self, other):
+    def __sub__(self, other): # the subtraction class
         '''
         :param other: assuming that other variable is giving us a str value
         :return:
@@ -171,3 +171,5 @@ class Fraction:
 print("woo, we can do math!")
 # spageti code is my fav
 
+#looking over this now, i feel like there is definately a better way to do this. i feel like a lot of this could be done with ome function
+#and then you loop though that, and it would make the program a lot shorter.
