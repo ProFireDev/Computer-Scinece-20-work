@@ -80,7 +80,7 @@ class Fraction:
         :param other: assuming that other variable is giving us a str value
         :return:
         '''
-
+#more comments that arnt comments lol
         if isinstance(other, str):
             nume = int(other.split('/')[0])
             deno = int(other.split('/')[1])
@@ -144,15 +144,15 @@ class Fraction:
         if isinstance(other, Fraction):
             nume = other.denominator
             deno = other.numerator
-            new_frac = Fraction(self.numerator, self.denominator)
-            new_frac.numerator = self.numerator * nume
+            new_frac = Fraction(self.numerator, self.denominator)       #     |
+            new_frac.numerator = self.numerator * nume                  #     V
             new_frac.denominator = self.denominator * deno
             new_frac.simplify()
             return str(new_frac)
         elif isinstance(other,int):
             nume = 1
             deno = other
-            new_frac = Fraction(self.numerator, self.denominator) #      ^and this code block are the same
+            new_frac = Fraction(self.numerator, self.denominator) #  ^and this code block are the same
             new_frac.numerator = self.numerator * nume
             new_frac.denominator = self.denominator * deno
             new_frac.simplify()
