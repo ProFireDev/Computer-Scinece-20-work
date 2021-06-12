@@ -18,18 +18,47 @@ def getNumber(Msg, Min, Max, Type):
 
 #very much not working currently (type error)
 def makeChange(Amount):
-      #do math to figure out bills and coins:
-    try:
-     Amount = (Amount) # not sure if pennys count , because they dont exist anymore, but included just in case
-     for change in [0.25,0.10,0.50,0.10,5.00,10.00,20.00,50.00,100.00]:
-        num = Amount/change
-        Amount += (change,) * num
-        Amount -= change * num
-        print(Amount) #confusing names here
-    #uhhh math is hard
-    except:
-        print("A fatal error has occoured!")
-        print(f"the value entered is not a float!\n{Amount}!")
+      try:
+          c=int(Amount) # c = change
+
+          #coins
+          quarters = c//0.25,
+          c = c%0.25
+          dimes = c//0.10,
+          c = c%0.10
+          nickels = c//0.05,
+          c = c%0.05
+          pennies = c//0.01,
+
+          #bills
+          hundred = c//100.00,
+          c = c%100.00
+          fifty  = c//50.00,
+          c = c%50.00
+          twenty = c//20.00,
+          c = c%20.00
+          ten  = c//10.00,
+          c = c%10.00
+          five  = c//5.00,
+          c = c%5.00
+          one  = c//1.00,
+          c = c%1.00
+
+          #printing out of the values:
+
+          Dvalues = f" the change is:\n DOllARS:\n $1: {one}\n $5: {five}\n $10: {ten}\n $20: {twenty}\n $50: {fifty}\n $100: {hundred}"
+          Cvalues =f"CENTS:\n $0.01: {pennies}\n $0.05: {nickels}\n $0.10: {dimes}\n 0.25 {quarters}"
+
+          results = Dvalues + "\n" + Cvalues
+    
+          return results
+      except:
+         error = input("an error has occoured counting\n are you sure you entered a string?\n try again? (Y or N)")
+         if(error=="Y"):
+             makeChange()
+         else:
+             quit()
+
 
 
 
