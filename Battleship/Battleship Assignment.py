@@ -55,6 +55,7 @@ def placeShips(gameboard):
         l = [i, h, v,0]
         ships.append(l) #appends to the list
     i = random.randint(1,2)
+
     if(i==1):
         while(True): #Destroyer - size 3
             v = random.randint(0, 5)
@@ -104,6 +105,7 @@ def placeShips(gameboard):
                             l = [i, h, v,0]
                             ships.append(l)
                             break
+
     else:
         while (True):
             v = random.randint(0, 7)
@@ -119,6 +121,7 @@ def placeShips(gameboard):
                             l = [i, h, v,0]
                             ships.append(l)
                             break
+
     if (i == 1):
         while (True):
             v = random.randint(0, 3)
@@ -136,6 +139,7 @@ def placeShips(gameboard):
                                 l = [i, h, v,0]
                                 ships.append(l)
                                 break
+
     else:
         while (True):
             v = random.randint(0, 7) #v = vertical
@@ -191,6 +195,7 @@ def checkHit(n,ships):
                 if(gameboard[h][v+1]=="H"):
                     print("You sunk my escort!")
                     ships[0][3]=1
+
         else:
             v = ships[0][2]
             h = ships[0][1]
@@ -198,6 +203,7 @@ def checkHit(n,ships):
                 if (gameboard[h+1][v] == "H"):
                     print("You sunk my escort!")
                     ships[0][3] = 1
+
     if(ships[1][3]==0):
         i =ships[1][0]
         if (i == 1):
@@ -216,6 +222,7 @@ def checkHit(n,ships):
                         if (gameboard[h + 2][v] == "H"):
                             print("You sunk my destroyer!")
                             ships[1][3] = 1
+
     if (ships[2][3] == 0):
         i = ships[2][0]
         if (i == 1):
@@ -266,9 +273,10 @@ def checkHit(n,ships):
                                  # if it doesent hit any of the spots labled there with h, then it lables the shot with a M for miss
     return ships
     
-    #code to be run in the main loop for the gaim
+    #code to be run in the main loop for the game
 def main():
     #instrustions shown above the board
+
     print(" WELCOME TO THE GAME!")
     print(" ") #acts as a spacer between the two
     print(" HOW TO PLAY:")
@@ -284,6 +292,7 @@ def main():
     print(" Battleship - size 4, LABEL: B") 
     print(" Aircraft Carrier - size 5, LABEL: A")
     print(" ") 
+
     ships = placeShips(gameboard) #places random ships on the board
     printGame(gameboard) #prints the bame on the gamebord
     while(True):
@@ -291,7 +300,8 @@ def main():
         r = inputUser()
         ships = checkHit(r,ships)
         printGame(gameboard)
-        print() 
+        print(" ") 
+
 if __name__ == '__main__':
     #runs the main
     try:
@@ -305,5 +315,3 @@ if __name__ == '__main__':
     # the position of the ships is shown so you can speedrun the game and hit them
     # its a feature and not a bug,  I intentally did it to make it easyer to see how it works
     # and if its randomized or not!
-
-
