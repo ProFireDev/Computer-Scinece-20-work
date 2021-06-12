@@ -8,8 +8,8 @@ class Fraction:
     def __init__(self,numerator,denominator): # create the fraction
         self.numerator = numerator
         self.denominator = denominator # define / call both inside of the class
+        # now this is a cool way of commenting things, kinda, its a string, but still
     def __eq__(self, other):
-# now this is a cool way of commenting things, kinda, its a string, but still
         '''
         :param other: the second fraction to be compared with the one constructed
         from class vars
@@ -20,7 +20,8 @@ class Fraction:
                 return True
             else:
                 return False
-        else: # just makes the actual fraction you can see the num and the denom and then the slash in between to seperate them
+        else:
+            # just makes the actual fraction you can see the num and the denom and then the slash in between to seperate them
             if str(self.numerator)+'/'+str(self.denominator) == str(other): # looks a bit like spagetti, but its fine
                 return True
             else:
@@ -90,7 +91,7 @@ class Fraction:
             else:
                 new_nume = (self.numerator * deno) - (nume * self.denominator)
                 return str(new_nume) + '/'+ str(self.denominator*deno)
-        elif isinstance(other, float):
+        elif isinstance(other, float): 
             return self.numerator/self.denominator - other
 
         elif isinstance(other, int):
@@ -167,7 +168,7 @@ class Fraction:
         self.denominator = int(self.denominator/compute_gcd)
         return self
 
-print("woo, we can do math!") # basic math is really hard...
+#print("woo, we can do math!") # basic math is really hard...
 # spageti code is my fav
 
 # looking over this now, i feel like there is definately a better way to do this. i feel like a lot of this could be done with ome function
