@@ -1,7 +1,7 @@
 ### Computer Scinece 20 work ###
 
-thease are all my assignments for computer science 20. if you stuble across this and see a mistake or a bug, help is appreceated!
+thease are all my assignments for computer science 20. if you stumble across this and see a mistake or a bug, help is appreceated!
 
-**Note, as it stands none of thease assignments are completed and some of them purposely have errors**
+the newest assignments are listed here: https://github.com/ProFireDev/Computer-Scinece-20-work/tree/main/Assignments/.Q4%20current
 
-repo will be killed once this class is done or merged with another repo, not sure what to do with it yet.
+the ones that still have to be worked on be for being handed in can be found here: https://github.com/ProFireDev/Computer-Scinece-20-work/tree/main/TO%20DO
