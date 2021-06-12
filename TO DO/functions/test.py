@@ -4,7 +4,7 @@ def makeChange(Amount):
       try:
           NewAmount =math.modf(Amount)
           #dec first, doller second
-          b=int(Amount) # B = bills
+          b=int(Amount[1]) # b = bills
             #bills
           hundred = b//100.00
           b = b%100.00
@@ -20,12 +20,12 @@ def makeChange(Amount):
           b = b%1.00
 
           #coins
-          c=int(NewAmount[0])
-          quarters = c//0.25
+          c=float(NewAmount[0])
+          quarters = c// 0.25
           c = c%0.25
           dimes = c//0.10
           c = c%0.10
-          nickels = c//0.05
+          nickels = c//0.05 
           c = c%0.05
           pennies = c//0.01
           c =c%0.05
@@ -33,7 +33,7 @@ def makeChange(Amount):
           #printing out of the values:
 
           Dvalues = f" the change is:\n DOllARS:\n $1: {one}\n $5: {five}\n $10: {ten}\n $20: {twenty}\n $50: {fifty}\n $100: {hundred}"
-          Cvalues =f"CENTS:\n $0.01: {pennies}\n $0.05: {nickels}\n $0.10: {dimes}\n $0.25 {quarters}"
+          Cvalues =f"CENTS:\n $0.01: {pennies}\n $0.05: {nickels}\n $0.10: {dimes}\n $0.25: {quarters}"
 
           results = Dvalues + "\n" + Cvalues
           #return results
