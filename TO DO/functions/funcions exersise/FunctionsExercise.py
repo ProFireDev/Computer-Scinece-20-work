@@ -1,16 +1,18 @@
 
-def subNumbers(num1, num2):
-    num1 = 0
-    num2 = 0
+def subNumbers(num1,num2):
     output = num1 - num2
     round(output, 3)
 
 def  isEven(Number):
-    Number = 0
     if (Number % 2) == 0:
-        isEven = True
+        Number = True
     else:
-      isEven = False
+      Number = False
 
 def  isMultiple(Number, MultipleOf):
-    if 
+    if (Number % MultipleOf == 0):
+        Number = True
+    else:
+        Number = False
+
+def: sum
