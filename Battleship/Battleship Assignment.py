@@ -158,7 +158,6 @@ def placeShips(gameboard):
                                 ships.append(l) #adss them to the list
                                 break
 
-    
 # all of the above code is basicly the same until here, so i didnt feel the need
 # to comment it, other then the ship it is.
     return ships
@@ -315,3 +314,6 @@ if __name__ == '__main__':
     # the position of the ships is shown so you can speedrun the game and hit them
     # its a feature and not a bug,  I intentally did it to make it easyer to see how it works
     # and if its randomized or not!
+
+# I Should also mention that if you enter letters the game will just die intentinally, i was going to set up and except, 
+## but in the intrest of time, i decided against it.
