@@ -9,10 +9,21 @@ def  isEven(Number):
     else:
       Number = False
 
+def  isCapitalized(Word):
+    if(Word.isupper()):
+        Word = True
+    else:
+        Word = False
+
 def  isMultiple(Number, MultipleOf):
     if (Number % MultipleOf == 0):
         Number = True
     else:
         Number = False
 
-def: sum
+def Sum(UpTo, StartFrom):
+    return
+
+def datingRange(Age):
+     lower = (Age/2)+7
+     oldest =(Age*2)-7 #thats proper math right?
