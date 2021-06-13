@@ -1,3 +1,5 @@
+#this is kinda buggy, it dies around line 450
+
 # This file contains a list of examples from the Microsoft Python for 
 #Beginners series.
 
@@ -358,7 +360,7 @@ def print_time(): # you use def to define a function
     print(datetime.datetime.now())
     print()
 
-first_name = 'Zak'
+first_name = 'A_Name'
 print_time() #calling the funtion that was just defined
 
 for x in range(0, 10):
@@ -373,11 +375,11 @@ def print_time_peram(task_name):
     print(datetime.now())
     print()
 
-first_name = 'Zak'
-print_time('first name assigned') # this is where you pass in the (peramiters)
+first_name = 'name_here'
+print_time() # this is where you pass in the (peramiters)
 for x in range(0, 10):
     print(x)
-print_time('loop completed')
+print_time()
 
 # passing in to get an initial example
 
