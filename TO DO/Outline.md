@@ -16,7 +16,6 @@ The project will begin with a project proposal that must be approved by the teac
 
 • Includes an explanation of how the student will demonstrate mastery of Python in general as well as **methods**, **arrays**, **file streaming and object classes** specifically.
 
-
 #### **Choosing a Project**
 
 Inspiration can come from anywhere. Often, it is difficult for programmers to come up with an interesting idea that can meet all of the outcomes. A good place to start is with something that you are interested in and then ask, “What if…”? Try not to exclude any idea unless it is clearly untenable but also try not to get stuck on any single idea either. Allow your mind to be flexible and dynamic.
@@ -33,17 +32,13 @@ Try to keep the following in mind:
 
 • You may get advice from others but collaborating on the project – especially the programming portion is forbidden.
 
-
 ## **Design Document Project Sections:**
 
 Each milestone must have its own section in the design document and should be arranged in the order shown. Each portion of the project must be completed before the programming portion takes place. DO NOT REVERSE ENGINEER THE DESIGN PROCESS BY PROGRAMMING FIRST AND THEN “PLANNING” AFTERWARDS!
 
-
 **1. **Ana**lysis** – In this section, the student is meant to define and design the program. They must start by clearly stating the goals, the essential elements of the project as well as the optional additions that may be added if time permits. Indicators of success that describe the minimal functionality of the final product should be included where appropriate.
 
-
 **2. **Pre**liminary Design** – In this section, the design must be refined and each part of the problem/project must be clearly broken down into its components. Some form of planning diagram (i.e. a flowchart, top down hierarchical breakdown or other diagram) should be included. At this stage of the design process, each non-trivial method should be described – including a general description of its purpose, process, parameters and return type. A decision about the types of data structures (list, tuple, dictionary etc.) used to hold non-trivial data should be explicitly explained at this point as well. A sample user interface (UI) should be diagrammed and a list of user friendly features should be made.
-
 
 **3. **The Pro**gram** – The program code must be included in the design document
 
@@ -72,6 +67,5 @@ The code should demonstrate:
 * How could a knowledge of programming be useful in the future?
 * What are some advantages and disadvantages of relying on technology to address social issues?
 * How has understanding of how computers work affected how you view and interact with technology?
-
 
 ###### **Your final submission should include both your design document as described above as well as your program.**
