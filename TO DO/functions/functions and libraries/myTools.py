@@ -1,19 +1,42 @@
 import math
 
-def getNumber(Msg, Min, Max, Type):
+def getNumber(Msg,Min =1, Max= 10,Type = int):
     # for int defults
-    try:
-     if(Type == int(Min,Max)):
+    if(Type==int):
         try:
-         number = int(input(Msg))
+            value=int(input(Msg))
+            if(value<=Max):
+                if(value>=Min):
+                    return value
 
-        except:
-            #auto catches if not an int and changes to a float
-            number = float(input(Msg))
-    except:
-        print("improper type, please enter a float or int")
-        getNumber() #reruns the function to reload it
+        except ValueError:
+            print("This is not a whole number.")
+            try:
+                value=int(input("Type a number:"))
+                if(value==float):
+                    try:
+                        value=float(input(Msg))
+                        if(value<=Max):
+                            if(value>=Min):
+                                return value
+                    except ValueError:
+                        print("This is not a Float (decimal).")
+            except:
+                print("This is not a proper number, please format it correctly.")
 
+    elif(Type==float):
+        try:
+            value=float(input(Msg))
+            if(value<=Max):
+                if(value>=Min):
+                    return value
+                    
+        except ValueError:
+            print("This is not a float (decimal).")
+            try:
+                value=int(input("Type a number:"))
+            except ValueError:
+                print("This is not a float (decimal).")
 
 
 def makeChange(Amount):
@@ -100,7 +123,7 @@ def getChange(Owed, Paid):
           changegiven = Dvalues + "\n" + Cvalues
 
           return "we Owe you ${TOTALTOTALOWED}\n" + changegiven
-           
+
     except:
        error = input("an error has occoured counting\n are you sure you entered a string?\n try again? (Y or N)")
     if(error=="Y"):
