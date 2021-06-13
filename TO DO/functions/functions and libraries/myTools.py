@@ -1,4 +1,4 @@
-
+import math
 
 def getNumber(Msg, Min, Max, Type):
     # for int defults
@@ -14,7 +14,7 @@ def getNumber(Msg, Min, Max, Type):
         print("improper type, please enter a float or int")
         getNumber() #reruns the function to reload it
 
-import math
+
 
 def makeChange(Amount):
       try:
@@ -52,8 +52,8 @@ def makeChange(Amount):
           Cvalues =f"CENTS:\n $0.01: {pennies}\n $0.05: {nickels}\n $0.10: {dimes}\n $0.25: {quarters}"
 
           results = Dvalues + "\n" + Cvalues
-          #return results
-          print(results)
+          return results
+          
       except:
          error = input("an error has occoured counting\n are you sure you entered a string?\n try again? (Y or N)")
          if(error=="Y"):
@@ -64,8 +64,10 @@ def makeChange(Amount):
          else:
              quit()
 
+
+
 def getChange(Owed, Paid):
-    #fix code above, then just take the diffrence here
+   
     return
 
 
