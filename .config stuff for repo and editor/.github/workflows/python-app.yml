@@ -6,7 +6,7 @@ name: Final project music player application
 on:
   push:
     paths:
-    - '/TO DO'
+    branches: [ main ]
   pull_request:
     branches: [ main ]
 
