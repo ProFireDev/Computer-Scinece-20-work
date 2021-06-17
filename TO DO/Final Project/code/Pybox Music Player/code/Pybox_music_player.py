@@ -1,4 +1,4 @@
-#importing modules
+# importing modules
 import os
 import pickle
 import tkinter as tk
@@ -29,7 +29,8 @@ class Player(tk.Frame):
 		self.paused = True # makes it so the play eer plays nothing by defult
 		self.played = False # sets the play value to false, to make sure that no sound is playing
 
-		#calling all of the functions and UI componetents
+		# calling all of the functions and UI componetents
+		
 		self.create_frames()
 		self.track_widgets()
 		self.control_widgets()
@@ -168,8 +169,8 @@ class Player(tk.Frame):
 	def play_song(self, event=None):
 		if event is not None:
 			self.current = self.list.curselection()[0]
-			for i in range(len(self.playlist)):
-				self.list.itemconfigure(i, bg="#00C4CC")
+			for i in range(len(self.playlist)): #gets the lenth of the playlist so it knows when it ends and when to switch to pause
+				self.list.itemconfigure(i, bg="#00C4CC") #sets the background color for the button
 
 		print(self.playlist[self.current]) #logs the track being played to the console
 		#for intenal debugging
@@ -197,14 +198,13 @@ class Player(tk.Frame):
 			self.pause['image'] = pause #changes the image on the button over
 		else:
 			if self.played == False: #if the song is playing, then dont pause it
-				self.play_song()
+				self.play_song() # changes the icon so you can resume plahing music
 			self.paused = False
 			mixer.music.unpause() #unpauses the song
 			self.pause['image'] = play #changes the icon back to the play icon
 
 
-
-# previous song
+# logic for moving back to the previous song
 
 	def prev_song(self):
 		if self.current > 0: #gets current song
@@ -216,7 +216,7 @@ class Player(tk.Frame):
 		self.play_song() #plays the existing song
 
 
-
+# logic for skippping to the next song
 
 	def next_song(self):
 		if self.current < len(self.playlist) - 1: #skips to the next track and moved up the playlist
@@ -233,8 +233,6 @@ class Player(tk.Frame):
 	def change_volume(self, event=None):
 		self.vol = self.volume.get() #gets the current volume
 		mixer.music.set_volume(self.vol / 10) #divides the volume by the 10 for each level on the slider
-
-
 
 
 ############################################################################################
