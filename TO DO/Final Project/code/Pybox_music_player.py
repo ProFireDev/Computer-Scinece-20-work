@@ -23,9 +23,12 @@ class Player(tk.Frame):
 			self.playlist=[] #create the empty array to add the songs to -
 			#only done if no path or no songs (so you have to add songs again)
 
+		# sets some global values
+
 		self.current = 0
-		self.paused = True
-		self.played = False
+		self.paused = True # makes it so the play eer plays nothing by defult
+		self.played = False # sets the play value to false, to make sure that no sound is playing
+
 		#calling all of the functions and UI componetents
 		self.create_frames()
 		self.track_widgets()
@@ -84,7 +87,7 @@ class Player(tk.Frame):
 	def control_widgets(self): #             back ground color  #text color
 		self.loadSongs = tk.Button(self.controls, bg='#00C4CC', fg='#121640', font=10)
 		self.loadSongs['text'] = 'Load Songs' #load songs button
-		self.loadSongs['command'] = self.retrieve_songs #calls retreive songs to load in songs
+		self.loadSongs['command'] = self.get_songs #calls retreive songs to load in songs
 		self.loadSongs.grid(row=0, column=0, padx=10)
 
 		self.prev = tk.Button(self.controls, image=prev) #previous track button
@@ -121,8 +124,8 @@ class Player(tk.Frame):
 #this is the actual list for the tracks
 		self.list = tk.Listbox(self.tracklist, selectmode=tk.SINGLE, # the list boxs sets up a list
 					 yscrollcommand=self.scrollbar.set, selectbackground='sky blue') # sets the color of the track you have selected inside of the list
-		self.enumerate_songs() # makes call to the funcion below
-		self.list.config(height=24) # sets the number of items on the list in one "page"
+		self.add_songs() # makes call to the funcion below
+		self.list.config(height=23) # sets the number of items on the list in one "page"
 		self.list.bind('<Double-1>', self.play_song) #calls the function to play a song when you double click on it
 
 		self.scrollbar.config(command=self.list.yview) # changes pos so you can scroll up and down the list
@@ -132,32 +135,36 @@ class Player(tk.Frame):
 
 #the function to do the actual getting of the songs
 
-	def retrieve_songs(self):
+	def get_songs(self):
 		self.songlist = [] #empty array to put songs in
 		directory = filedialog.askdirectory() #opens up a diolage to choose a folder of songs - to create a playlist you just need to have all the songs you want in one folder
 		for root_, dirs, files in os.walk(directory):
 				for file in files:
-					if os.path.splitext(file)[1] == '.mp3':
-						path = (root_ + '/' + file).replace('\\','/')
-						self.songlist.append(path)
+					if os.path.splitext(file)[1] == '.mp3': #splits the file name away to check if it ends in a .mp3 and if we can play it or not
+						path = (root_ + '/' + file).replace('\\','/') #do some shuffleing around to remove parts of the file parth
+						#the main goal here though is to get the root of the files location
+						self.songlist.append(path) #appends the file path to the file, so we can find the file we are playing and its location
+						#pickles great for helping data flow
 
-    	with open('songs.pickle', 'wb') as f:
-			pickle.dump(self.songlist, f)
-		self.playlist = self.songlist
-		self.tracklist['text'] = f'PlayList - {str(len(self.playlist))}'
-		self.list.delete(0, tk.END)
-		self.enumerate_songs()
+		with open('songs.pickle', 'wb') as f:
+			#dumps the contents of the file indexed into the song list
+			pickle.dump(self.songlist, f) #dumnps out a list of .mp3 files
+		self.playlist = self.songlist #setting thease values to be the same
+		self.tracklist['text'] = f'PlayList - {str(len(self.playlist))}' # lables it and appends the number of tracks to it
+		self.list.delete(0, tk.END) 
+		self.add_songs() #calls the enumerate function to add the songs to the list
 
 
 # funcrtion to add the songs to the list
 
-	def enumerate_songs(self):
+	def add_songs(self):
 		for index, song in enumerate(self.playlist):
 			#gets the songs in a playlist (folder) then inserts them
 			self.list.insert(index, os.path.basename(song)) #this is also part of how the total number of tracks in the playlist are counted
 
 
-#play songs for the play song button
+# play songs for the play song button
+
 	def play_song(self, event=None):
 		if event is not None:
 			self.current = self.list.curselection()[0]
@@ -167,14 +174,15 @@ class Player(tk.Frame):
 		print(self.playlist[self.current]) #logs the track being played to the console
 		#for intenal debugging
 		mixer.music.load(self.playlist[self.current]) #Loads the currently selcected track from the list
-		self.songtrack['anchor'] = 'w' 
-		self.songtrack['text'] = os.path.basename(self.playlist[self.current])
+		self.songtrack['anchor'] = 'w' # positions text to the west side 
+		self.songtrack['text'] = os.path.basename(self.playlist[self.current]) #gets text for the name of the track
+		# gets the path of the file and where it is, the name of the file aswell.
 
-		self.pause['image'] = play
+		self.pause['image'] = play #sitchs the image, before resuming plahying
 		self.paused = False
-		self.played = True
-		self.list.activate(self.current) 
-		self.list.itemconfigure(self.current, bg='#00C4CC')
+		self.played = True #thease 2 values swap for each to make sure nothing weird happens
+		self.list.activate(self.current) #plays the item thats currently indexed
+		self.list.itemconfigure(self.current, bg='#00C4CC') #configures the button on the canavas
 
 		mixer.music.play() #play function from mixer
 
@@ -223,8 +231,8 @@ class Player(tk.Frame):
 #change  volume for the volume slider
 
 	def change_volume(self, event=None):
-		self.v = self.volume.get() #gets the current volume
-		mixer.music.set_volume(self.v / 10) #divides the volume by the 10 for each level on the slider
+		self.vol = self.volume.get() #gets the current volume
+		mixer.music.set_volume(self.vol / 10) #divides the volume by the 10 for each level on the slider
 	
 
 
@@ -234,9 +242,13 @@ class Player(tk.Frame):
 ############################################################################################
 
 root = tk.Tk()
-root.geometry('680x400')
+#sets the window size
+root.geometry('680x405')
+#configures the deufult background color
 root.configure(bg='#121640')
+#the title for the window
 root.wm_title('pyBox Music Player')
+#gets the various icons and ui assets needed
 root.iconphoto(False, tk.PhotoImage(file='code/UI/icon.png'))
 img = PhotoImage(file='code/UI/music.png')
 next_ = PhotoImage(file = 'code/UI/next.png')
@@ -245,5 +257,7 @@ play = PhotoImage(file='code/UI/play.png')
 pause = PhotoImage(file='code/UI/pause.png')
 
 
-app = Player(master=root)
-app.mainloop()
+Pybox_main = Player(master=root)
+#initalizes the entire program
+Pybox_main.mainloop()
+#runs the whole program
