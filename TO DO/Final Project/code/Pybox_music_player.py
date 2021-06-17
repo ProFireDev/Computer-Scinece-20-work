@@ -78,7 +78,7 @@ class Player(tk.Frame):
 						bg="#121642",fg="#00C4CC")
 		self.songtrack['text'] = 'Press Load to start' #defult text when theres no track to play
 		self.songtrack.config(width=30, height=1)
-		self.songtrack.grid(row=1,column=0,padx=10)
+		self.songtrack.grid(row=1,column=0,padx=10) #sets location - padding between components
 
 
 
