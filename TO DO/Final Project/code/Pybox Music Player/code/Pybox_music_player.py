@@ -16,9 +16,9 @@ class Player(tk.Frame):
 		self.pack()
 		mixer.init()
 
-		if os.path.exists('songs.pickle'):
+		if os.path.exists('songs.pickle'):   #this is kinda like the cache / list of songs
 			with open('songs.pickle', 'rb') as f:
-				self.playlist = pickle.load(f)
+				self.playlist = pickle.load(f) #loads the found songs into the playlist on the ui
 		else:
 			self.playlist=[] #create the empty array to add the songs to -
 			#only done if no path or no songs (so you have to add songs again)
@@ -41,7 +41,7 @@ class Player(tk.Frame):
 		#frame for the "main" ui comp, where the album covers show up
 		self.track = tk.LabelFrame(self, text='Now playing', #lable for the now playing title
 					font=("Frutiger",15,"bold"), #font, font type and size
-					bg="#EE3EC9",fg="#4C0BD1",bd=5,relief=tk.GROOVE) #setting the background and forground colors 
+					bg="#EE3EC9",fg="#4C0BD1",bd=5,relief=tk.GROOVE) #setting the background and forground colors
 					# bg = the pink outline and fg = the text color
 		self.track.config(width=200,height=300)
 		self.track.grid(row=0, column=0, padx=10) #sets the location in the application
@@ -82,7 +82,7 @@ class Player(tk.Frame):
 
 
 
-# handels the track controls 
+# handels the track controls
 
 	def control_widgets(self): #             back ground color  #text color
 		self.loadSongs = tk.Button(self.controls, bg='#00C4CC', fg='#121640', font=10)
@@ -151,7 +151,7 @@ class Player(tk.Frame):
 			pickle.dump(self.songlist, f) #dumnps out a list of .mp3 files
 		self.playlist = self.songlist #setting thease values to be the same
 		self.tracklist['text'] = f'PlayList - {str(len(self.playlist))}' # lables it and appends the number of tracks to it
-		self.list.delete(0, tk.END) 
+		self.list.delete(0, tk.END)
 		self.add_songs() #calls the enumerate function to add the songs to the list
 
 
@@ -174,7 +174,7 @@ class Player(tk.Frame):
 		print(self.playlist[self.current]) #logs the track being played to the console
 		#for intenal debugging
 		mixer.music.load(self.playlist[self.current]) #Loads the currently selcected track from the list
-		self.songtrack['anchor'] = 'w' # positions text to the west side 
+		self.songtrack['anchor'] = 'w' # positions text to the west side
 		self.songtrack['text'] = os.path.basename(self.playlist[self.current]) #gets text for the name of the track
 		# gets the path of the file and where it is, the name of the file aswell.
 
@@ -195,7 +195,7 @@ class Player(tk.Frame):
 			self.paused = True
 			mixer.music.pause() #stops the current track from playing
 			self.pause['image'] = pause #changes the image on the button over
-		else: 
+		else:
 			if self.played == False: #if the song is playing, then dont pause it
 				self.play_song()
 			self.paused = False
@@ -210,7 +210,7 @@ class Player(tk.Frame):
 		if self.current > 0: #gets current song
 			self.current -= 1 #moves back in the que by one
 		else:
-			self.current = 0 
+			self.current = 0
 		self.list.itemconfigure(self.current + 1, bg='#9A61D8') #when you move tracks back, it changes the shade so you can see how far back
 		#you have went from where you where
 		self.play_song() #plays the existing song
@@ -233,7 +233,7 @@ class Player(tk.Frame):
 	def change_volume(self, event=None):
 		self.vol = self.volume.get() #gets the current volume
 		mixer.music.set_volume(self.vol / 10) #divides the volume by the 10 for each level on the slider
-	
+
 
 
 
