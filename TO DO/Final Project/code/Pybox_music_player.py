@@ -2,10 +2,9 @@
 import os
 import pickle
 import tkinter as tk
-from tkinter import filedialog
+from tkinter import  filedialog
 from tkinter import PhotoImage
 from pygame import mixer
-from mutagen.easyid3 import EasyID3
 
 # Defining the player class
 
@@ -33,19 +32,18 @@ class Player(tk.Frame):
 		self.tracklist_widgets()
 
 
-
 	def create_frames(self):
 		self.track = tk.LabelFrame(self, text='Now playing', 
 					font=("Frutiger",15,"bold"),
 					bg="#EE3EC9",fg="#4C0BD1",bd=5,relief=tk.GROOVE)
-		self.track.config(width=410,height=300)
+		self.track.config(width=200,height=300)
 		self.track.grid(row=0, column=0, padx=10)
 
 		self.tracklist = tk.LabelFrame(self, text=f'PlayList - {str(len(self.playlist))} Songs',
 							font=("Frutiger",13,"bold"),
 							bg="#FF39AA",fg="#4C0BD1",bd=5,relief=tk.GROOVE)
-		self.tracklist.config(width=190,height=400)
-		self.tracklist.grid(row=0, column=1, rowspan=3, pady=2)
+		self.tracklist.config(width=790,height=200)
+		self.tracklist.grid(row=0, column=1, rowspan=4, pady=2)
 
 		self.controls = tk.LabelFrame(self,
 							font=("Frutiger",15,"bold"),
@@ -54,10 +52,7 @@ class Player(tk.Frame):
 		self.controls.grid(row=2, column=0, pady=5, padx=10)
 
 		#not really any error handeling needed here, as its so bare bones nothing can go wrong
-
-
-	def art(self):
-		pass
+ 
 
 	def track_widgets(self):
 		self.canvas = tk.Label(self.track, image=img)
@@ -109,6 +104,7 @@ class Player(tk.Frame):
 	def tracklist_widgets(self):
 		self.scrollbar = tk.Scrollbar(self.tracklist, orient=tk.VERTICAL)
 		self.scrollbar.grid(row=0,column=1, rowspan=5, sticky='ns')
+		self.scrollbar.configure(bg='purple')
 
 		self.list = tk.Listbox(self.tracklist, selectmode=tk.SINGLE,
 					 yscrollcommand=self.scrollbar.set, selectbackground='sky blue')
@@ -118,6 +114,7 @@ class Player(tk.Frame):
 
 		self.scrollbar.config(command=self.list.yview)
 		self.list.grid(row=0, column=0, rowspan=5)
+
 
 
 
@@ -216,6 +213,7 @@ class Player(tk.Frame):
 	
 
 
+
 ############################################################################################
 #                                 MAIN
 ############################################################################################
@@ -230,6 +228,7 @@ next_ = PhotoImage(file = 'code/UI/next.png')
 prev = PhotoImage(file='code/UI/previous.png')
 play = PhotoImage(file='code/UI/play.png')
 pause = PhotoImage(file='code/UI/pause.png')
+
 
 app = Player(master=root)
 app.mainloop()
